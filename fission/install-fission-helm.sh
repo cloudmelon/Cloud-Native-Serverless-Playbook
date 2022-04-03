@@ -13,6 +13,10 @@ kubectl create -k "github.com/fission/fission/crds/v1?ref=v1.15.1"
 helm repo add fission-charts https://fission.github.io/fission-charts/
 helm repo update
 
+# For Minikube, kind and Docker desktop
 helm install --version v1.15.1 --namespace $FISSION_NAMESPACE fission \
   --set serviceType=NodePort,routerServiceType=NodePort \
   fission-charts/fission-all
+
+# For AKS, EKS, GKE
+helm install --version v1.15.1 --namespace $FISSION_NAMESPACE fission fission-charts/fission-all
