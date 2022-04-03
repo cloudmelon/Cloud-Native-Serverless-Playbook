@@ -13,13 +13,22 @@ Virtual Kubelet is an implementation of the Kubernetes kubelet that masquerades 
  
 - Azure Batch		
 - Azure Container Instances (ACI)
-- AWS Fargate	
 
 - Elotl Kip	(providing AWS, GCP, Azure support, though public doc only available for AWS and GCP )
-- Kubernetes Container Runtime Interface (CRI)	
+- Kubernetes [Container Runtime Interface (CRI) provider](https://github.com/virtual-kubelet/cri)	
+
+- AWS [Fargate](https://docs.aws.amazon.com/AmazonECS/latest/userguide/what-is-fargate.html)	
+
+```bash
+
+curl --output fargate.toml https://github.com/virtual-kubelet/aws-fargate/blob/master/fargate.toml
+
+virtual-kubelet --provider aws --provider-config fargate.toml
+
+```
 
 Other providers : 
-- HashiCorp Nomad
+- HashiCorp [Nomad](https://www.nomadproject.io/)
 - Huawei Cloud Container Instance (CCI)	
 - Admiralty Multi-Cluster Scheduler	
 - Alibaba Cloud Elastic Container Instance (ECI)
@@ -43,11 +52,14 @@ Kubernetes Event-Driven Autoscaling (KEDA) is a event-driven autoscaler for Kube
 
 - Azure functions usually works in Microsoft Azure and deploying on [custom location](https://docs.microsoft.com/en-us/azure/app-service/overview-arc-integration) on [Azure-Arc enabled Kubernetes](https://docs.microsoft.com/en-us/azure/azure-arc/kubernetes/overview) is currently [in preview](https://docs.microsoft.com/en-us/azure/app-service/manage-create-arc-environment?tabs=bash), check out a demo [here](https://github.com/cloudmelon/aks-severless/tree/master/AKSKEDADemo)
 
-- Fission   check out a demo [here]()
+- Fission, short-lived functions in any language, and map them to HTTP requests on Kubernetes.
 
-- KNative   check out a demo [here]()
+- KNative, open-sourced solution help build Serverless and Event Driven Applications on Kubernetes.
 
-- OpenFaaS
+- OpenFaaS, bring an OCI-compatible image, deploy event-driven serverless functions and microservices to Kubernetes
+
+Check out a demo about Serverless functions from [here]()
+
 
 Other serverless frameworks that run Kubernetes such as kubeless ( no longer actively maintained by VMware ) and [Apache OpenWhisk](https://openwhisk.apache.org/). 
 
