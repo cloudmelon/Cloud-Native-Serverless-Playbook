@@ -12,11 +12,17 @@ Console.WriteLine("Greetings !");
 // Get the connection string from app settings
 string connectionString = ConfigurationManager.AppSettings["StorageConnectionString"];
 
+// options
+var options = new QueueClientOptions
+{
+    MessageEncoding = QueueMessageEncoding.Base64
+};
 // Instantiate a QueueClient which will be used to create and manipulate the queue
-QueueClient queueClient = new QueueClient(connectionString, "functions-queue");
+QueueClient queueClient = new QueueClient(connectionString, "functions-queue", options);
 
 // Create the queue if it doesn't already exist
 queueClient.CreateIfNotExists();
+
 
 if (queueClient.Exists())
 {
