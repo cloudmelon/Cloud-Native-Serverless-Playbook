@@ -1,0 +1,11 @@
+{
+  "bindings": [
+    {
+      "name": "queueItem",
+      "type": "serviceBusTrigger",
+      "direction": "in",
+      "queueName": "melonqueue",
+      "connection": "ServiceBusConnection"
+    }
+  ]
+}
